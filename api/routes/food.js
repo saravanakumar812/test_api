@@ -36,9 +36,17 @@ router.get("/", (req, res, next) => {
     .exec()
     .then((docs) => {
       console.log(docs);
+      if (docs.length === 0) {
+        // No data found, set error to true
+        return res.status(200).json({
+          message: "No data found",
+          error: true,
+          data: []
+        });
+      }
       const response = {
         message: "Get Data Successfully",
-
+        error: false,
         data: docs.map((doc) => {
           return {
             foodName: doc.foodName,
