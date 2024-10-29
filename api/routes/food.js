@@ -38,8 +38,8 @@ router.get("/", (req, res, next) => {
       console.log(docs);
       const response = {
         message: "Get Data Successfully",
-        count: docs.length,
-        products: docs.map((doc) => {
+
+        data: docs.map((doc) => {
           return {
             foodName: doc.foodName,
             image: doc.image

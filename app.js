@@ -7,6 +7,8 @@ const port = process.env.PORT || 8000;
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const foodRoutes = require("./api/routes/food");
+const loginRoutes = require("./api/routes/login");
+const signupRoutes = require("./api/routes/signup");
 const connectDB = require("./db/connect");
 const http = require("http");
 
@@ -39,6 +41,8 @@ app.use("/image", express.static("uploads"));
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
 app.use("/foods", foodRoutes);
+app.use("/login", loginRoutes);
+app.use("/signup", signupRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not Found");
