@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8000;
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const foodRoutes = require("./api/routes/food");
