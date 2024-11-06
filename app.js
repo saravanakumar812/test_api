@@ -9,6 +9,7 @@ const orderRoutes = require("./api/routes/orders");
 const foodRoutes = require("./api/routes/food");
 const loginRoutes = require("./api/routes/login");
 const signupRoutes = require("./api/routes/signup");
+const restaurantsListRoutes = require("./api/routes/restaurantsList");
 const connectDB = require("./db/connect");
 const http = require("http");
 
@@ -37,12 +38,14 @@ app.use((req, res, next) => {
 });
 app.use("/productImage", express.static("uploads"));
 app.use("/image", express.static("uploads"));
+app.use("/restaurantImage", express.static("uploads"));
 
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
 app.use("/foods", foodRoutes);
 app.use("/login", loginRoutes);
 app.use("/signup", signupRoutes);
+app.use("/restaurantsList", restaurantsListRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not Found");
