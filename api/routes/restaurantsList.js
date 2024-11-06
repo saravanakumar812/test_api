@@ -32,7 +32,9 @@ const upload = multer({
 
 router.get("/", (req, res, next) => {
   RestaurantsList.find()
-    .select("foodName image")
+    .select(
+      "restaurantsListId restaurantName image rating cousin foodType amount "
+    )
     .exec()
     .then((docs) => {
       console.log(docs);
