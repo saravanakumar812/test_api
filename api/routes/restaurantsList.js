@@ -4,7 +4,6 @@ const RestaurantsList = require("../models/restaurantsList");
 const router = express.Router();
 const path = require("path");
 
-// Configure multer to store images in an 'uploads' directory
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads");
@@ -70,18 +69,10 @@ router.get("/", (req, res, next) => {
         error: err
       });
     });
-
-  // res.status(200).json({
-  //   message: "IT Get Works!",
-  //   error: "true",
-
-  // });
 });
 
-// Route to handle product creation with an image
 router.post("/", upload.single("restaurantImage"), async (req, res) => {
   try {
-    // const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
     const imageUrl = req.file
       ? `http://testapi-production-mps.up.railway.app/image/${req.file.filename}`
       : null;
